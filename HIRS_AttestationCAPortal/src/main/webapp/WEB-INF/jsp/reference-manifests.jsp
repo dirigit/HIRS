@@ -30,7 +30,6 @@
                 <thead>
                     <tr>
                         <th>Tag ID</th>
-                        <th>Type</th>
                         <th>Manufacturer</th>
                         <th>Model</th>
                         <th>Version</th>
@@ -45,9 +44,8 @@
                 var url = pagePath +'/list';
                 var columns = [
                         {data: 'tagId'},
-                        {data: 'rimType'},
-                        {data: 'manufacturer'},
-                        {data: 'model'},
+                        {data: 'platformManufacturer'},
+                        {data: 'platformModel'},
                         {data: 'firmwareVersion'},
                         {
                             data: 'id',
@@ -58,8 +56,8 @@
                                 // sets up a hidden input field containing the ID which is
                                 // used as a parameter to the REST POST call to delete
                                 var html = '';
-                                html += certificateDetailsLink('referencemanifest', full.id, true);
-                                html += certificateDownloadLink(full.id, pagePath);
+                                html += rimDetailsLink(full.id);
+                                html += rimDownloadLink(full.id, pagePath);
                                 html += certificateDeleteLink(full.id, pagePath);
 
                                 return html;
